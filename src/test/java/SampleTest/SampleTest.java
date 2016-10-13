@@ -1,7 +1,7 @@
 package com.javacodegeeks; 
 import org.junit.Assert; 
 import org.junit.Test; 
-public class SimpleTest { 
+public class SampleTest { 
 @Test 
 public void test() { 
 SampleExample example = new SampleExample(); 
