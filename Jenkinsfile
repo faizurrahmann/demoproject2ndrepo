@@ -19,12 +19,15 @@ pipeline {
 	    stage ('Installation Stage') {
 		when {
 			branch 'master'
+			allOf {
+			environment name: 'DEPLOY_TO', value: 'production'
+			}
 		     }	
-			steps {
-				withMaven(maven : 'Maven_3.5.2') {
-				bat 'mvn install'
-				}
-			      }
+		steps {
+			withMaven(maven : 'Maven_3.5.2') {
+			bat 'mvn install'
+	         }
+	        }
             }
         } 
 }
