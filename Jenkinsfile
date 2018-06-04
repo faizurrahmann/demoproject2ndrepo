@@ -17,11 +17,14 @@ pipeline {
 		}
 	    }
 	    stage ('Installation Stage') {
-		steps {
-			withMaven(maven : 'Maven_3.5.2') {
-			bat 'mvn install'
-			}
-		}
+		when {
+			branch 'master'
+		     }	
+			steps {
+				withMaven(maven : 'Maven_3.5.2') {
+				bat 'mvn install'
+				}
+			      }
             }
         } 
 }
