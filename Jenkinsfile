@@ -4,7 +4,7 @@ pipeline {
 	    stage ('Build Stage') {
 		steps {
 			withMaven(maven : 'Maven_3.5.2') {
-			bat 'mvn clean compile'
+			bat 'mvn -f my-app/pom.xml clean compile'
 			}
 		}
 	    }
@@ -12,7 +12,7 @@ pipeline {
 	    stage ('Test Stage') {
 		steps {
 			withMaven(maven : 'Maven_3.5.2') {
-			bat 'mvn test'
+			bat 'mvn -f my-app/pom.xml test'
 			}
 		}
 	    }
@@ -25,7 +25,7 @@ pipeline {
 		     }	
 		steps {
 			withMaven(maven : 'Maven_3.5.2') {
-			bat 'mvn install'
+			bat 'mvn -f my-app/pom.xml install'
 	         }
 	        }
             }
